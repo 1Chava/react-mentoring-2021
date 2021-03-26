@@ -2,12 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import DownArrow from "./images/method-draw-image-1.svg";
 
-const filters = [
-  { name: "ALL", active: true },
-  { name: "DOCUMENTARY", active: false },
-  { name: "COMEDY", active: false },
-  { name: "HORROR", active: false },
-  { name: "CRIME", active: false },
+const sort = [
+  { id: "sort-01", name: "ALL", active: true },
+  { id: "sort-02", name: "DOCUMENTARY", active: false },
+  { id: "sort-03", name: "COMEDY", active: false },
+  { id: "sort-04", name: "HORROR", active: false },
+  { id: "sort-05", name: "CRIME", active: false },
 ];
 
 const SortBy = () => {
@@ -20,8 +20,12 @@ const SortBy = () => {
           <Image src={DownArrow} alt="Down arrow" />
         </DropdownButton>
         <DropdownContent>
-          {filters.map(({ name, active }) => {
-            return <DropdownItem active={active}>{name}</DropdownItem>;
+          {sort.map(({ id, name, active }) => {
+            return (
+              <DropdownItem key={id} active={active}>
+                {name}
+              </DropdownItem>
+            );
           })}
         </DropdownContent>
       </Dropdown>

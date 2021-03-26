@@ -2,17 +2,22 @@ import React from "react";
 import styled from "styled-components";
 
 const filters = [
-  { name: 'ALL', active: true },
-  { name: 'DOCUMENTARY', active: false },
-  { name: 'COMEDY', active: false },
-  { name: 'HORROR', active: false },
-  { name: 'CRIME', active: false },
+  { id: "filt-01", name: "ALL", active: true },
+  { id: "filt-02", name: "DOCUMENTARY", active: false },
+  { id: "filt-03", name: "COMEDY", active: false },
+  { id: "filt-04", name: "HORROR", active: false },
+  { id: "filt-05", name: "CRIME", active: false },
 ];
 
 const Filter = () => {
   return (
     <ListWrapper>
-      {filters.map(({name, active}) => <ListItem className={active && 'active'}> {name} </ListItem>)}
+      {filters.map(({ id, name, active }) => (
+        <ListItem key={id} className={active && "active"}>
+          {" "}
+          {name}{" "}
+        </ListItem>
+      ))}
     </ListWrapper>
   );
 };
@@ -25,7 +30,7 @@ const ListWrapper = styled.ul`
 `;
 
 const ListItem = styled.li`
-  color: #FFFFFF;
+  color: #ffffff;
   display: inline;
   padding: 3vh 1vw;
   &:hover {
@@ -33,7 +38,7 @@ const ListItem = styled.li`
   }
   &.active {
     border-bottom-style: solid;
-    border-bottom-color: #F65261;
+    border-bottom-color: #f65261;
   }
 `;
 

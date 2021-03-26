@@ -1,11 +1,13 @@
 import React from 'react';
+import PropTypes from "prop-types";
 import styled from 'styled-components';
 import Filter from '../../../components/Filter';
 import SortBy from '../../../components/SortBy'
 import MovieCounter from '../../../components/MovieCounter'
 import MovieGrid from '../../../components/MovieGrid'
 
-const Main = () => {
+const Main = (props) => {
+  const { editMovie, deleteMovie } = props;
   return (
     <Wrapper>
       <Logos>
@@ -14,7 +16,7 @@ const Main = () => {
       </Logos>
       <Divide />
       <MovieCounter Count={39} />
-      <MovieGrid />
+      <MovieGrid editMovie={editMovie} deleteMovie={deleteMovie}/>
     </Wrapper>
   );
 };
@@ -36,5 +38,9 @@ const Divide = styled.hr`
   width: auto;
   margin: 0vh 5vw 2vh 5vw;
 `;
+
+Main.propTypes = {
+  editMovie: PropTypes.func.isRequired,
+};
 
 export default Main;

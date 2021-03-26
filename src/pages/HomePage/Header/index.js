@@ -1,17 +1,19 @@
 import React from 'react';
+import PropTypes from "prop-types";
 import styled from 'styled-components';
 import Logo from '../../../components/Logo';
 import HeaderImage from './images/header.png';
 import AddButton from '../../../components/AddButton';
 import SearchButton from '../../../components/SearchButton';
 
-const Header = () => {
+const Header = (props) => {
+  const { openModal } = props;
   return (
     <Background>
       <Wrapper>
         <Logos>
           <Logo />
-          <AddButton />
+          <AddButton onClick={() => openModal('ADD')} />
         </Logos>
         <Title>FIND YOUR MOVIE</Title>
         <Bar>
@@ -69,5 +71,9 @@ const Bar = styled.div`
   flex-direction: row;
   align-items: center;
 `;
+
+Header.propTypes = {
+  openModal: PropTypes.func.isRequired,
+};
 
 export default Header;
