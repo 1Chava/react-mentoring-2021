@@ -1,17 +1,9 @@
-import './App.css';
-import MyComponent from './components/MyComponent';
-import MyPureComponent from './components/MyPureComponent';
-import FunctionalComponent from './components/FunctionalComponent';
+import HomePage from './pages/HomePage';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <div id="element"></div>
-        <MyComponent type='Component' />
-        <MyPureComponent type='Pure Component' />
-        <FunctionalComponent type='Functional Component' />
-      </header>
+    <div>
+      <HomePage />
     </div>
   );
 }
